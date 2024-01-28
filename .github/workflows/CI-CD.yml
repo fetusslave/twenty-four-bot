@@ -42,12 +42,17 @@ jobs:
         docker push ${{ secrets.DOCKER_USER }}/$REPO
 
     - name: Deploy Docker to AWS (EC2)
-      uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.0
+      uses: appleboy/ssh-action@master
       with:
-        # AWS access key ID
-        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        # AWS secret access key
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws_default_region: ${{ secrets.AWS_REGION }}
+        host: ${{ secrets.AWS_HOST }}
+        username: ${{ secrets.AWS_USERNAME }}
+        key: ${{ secrets.AWS_KEY }}
+        script: |
+          docker login
+          docker pull ${{ secrets.DOCKER_USER }}/twenty_four_bot_test:latest
+          docker stop twenty_four_bot
+          docker rm twenty_four_bot
+          docker run -t -i -d --rm --name twenty_four_bot ${{ secrets.DOCKER_USER }}/twenty_four_bot_test
+
         
       
