@@ -40,3 +40,14 @@ jobs:
       run: |
         docker build --build-arg guild_id=$GUILD_ID --build-arg discord_token=$DISCORD_TOKEN . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/$REPO:latest
         docker push ${{ secrets.DOCKER_USER }}/$REPO
+
+    - name: Deploy Docker to AWS (EC2)
+      uses: bitovi/github-actions-deploy-docker-to-ec2@v1.0.0
+      with:
+        # AWS access key ID
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        # AWS secret access key
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_default_region: ${{ secrets.AWS_REGION }}
+        
+      
