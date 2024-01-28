@@ -33,5 +33,5 @@ jobs:
       env:
         REPO: twenty_four_bot_test
       run: |
-        docker build --build-arg GUILD_ID=${GUILD_ID} --build-arg DISCORD_TOKEN=${DISCORD_TOKEN} . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/$REPO:latest
+        docker build --build-arg GUILD_ID=$GUILD_ID --build-arg DISCORD_TOKEN=$DISCORD_TOKEN . --file Dockerfile --tag ${{ secrets.DOCKER_USER }}/$REPO:latest
         docker push ${{ secrets.DOCKER_USER }}/$REPO
