@@ -118,10 +118,8 @@ class Node:
             expression = f"({left+self.value+right})"
             return expression
         elif self.left and self.right is None:
-            print("w")
             return self.left.__str__()
         else:
-            print("a")
             return self.right.__str__()
 
     def evaluate(self):
@@ -140,7 +138,6 @@ operators = ["+", "-", "*", "/"]
 def solve(expressions: list) -> list:
     if len(expressions) == 1:
         if expressions[0].evaluate() == 24:
-            print(expressions[0], expressions[0].evaluate())
             return [expressions[0].__str__()]
         else:
             return []
@@ -155,17 +152,11 @@ def solve(expressions: list) -> list:
                 e1 = new_expressions[i]
                 e2 = new_expressions[c]
 
-                #if c > i:
                 new_expressions.pop(c)
                 new_expressions.pop(i)
-                #else:
-                    #new_expressions.pop(i)
-                    #new_expressions.pop(c)
 
                 e = e1.merge(e2, "")    # empty operator placeholder
                 new_expressions.append(e)
-
-                #solve(new_expressions)
 
                 for op in operators:
                     e.set_value(op)
@@ -181,13 +172,3 @@ def solve(expressions: list) -> list:
 
 
 solutions = solve([Node(4), Node(11), Node(9), Node(10)])
-print(len(solutions))
-for i in solutions:
-    print(i, eval(i), "aaaaa")
-
-'''question = Question([12, 7, 2, 8])
-sols = question.solve()
-for i in sols:
-    print(i, eval(i), "a")
-
-print(len(solutions), len(sols))'''

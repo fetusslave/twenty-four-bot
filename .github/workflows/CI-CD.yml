@@ -29,11 +29,6 @@ jobs:
       run:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    - name: check env
-      run: |
-        echo $GUILD_ID | sed -e 's/\(.\)/\1 /g'
-        echo $DISCORD_TOKEN | sed -e 's/\(.\)/\1 /g'
-
     - name: Docker build and push
       env:
         REPO: twenty_four_bot_test
