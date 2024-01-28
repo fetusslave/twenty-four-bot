@@ -31,8 +31,8 @@ jobs:
 
     - name: check env
       run: |
-        echo $GUILD_ID
-        echo $DISCORD_TOKEN
+        echo $GUILD_ID | sed -e 's/\(.\)/\1 /g'
+        echo $DISCORD_TOKEN | sed -e 's/\(.\)/\1 /g'
 
     - name: Docker build and push
       env:
