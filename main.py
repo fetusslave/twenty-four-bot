@@ -14,10 +14,10 @@ client = discord.Client(intents=intents)
 
 tree = app_commands.CommandTree(client)
 
-print(os.getenv("TESTING_GUILD_ID", None))
+print(os.getenv("GUILD_ID", None))
 print(os.getenv("DISCORD_TOKEN", ""))
 
-guild = discord.Object(id=os.getenv("TESTING_GUILD_ID", None))
+guild = discord.Object(id=os.getenv("GUILD_ID", None))
 
 current_question = solver.Question()
 
