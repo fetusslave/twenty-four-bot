@@ -29,6 +29,11 @@ jobs:
       run:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
+    - name: check env
+      run: |
+        echo $GUILD_ID
+        echo $DISCORD_TOKEN
+
     - name: Docker build and push
       env:
         REPO: twenty_four_bot_test
