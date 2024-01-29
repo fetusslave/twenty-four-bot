@@ -1,4 +1,5 @@
 # 24 points Discord bot
+Built using [discord.py](https://github.com/Rapptz/discord.py) library.
 ## 24 points rules
 Given 4 numbers ranging from 1 to 12, try to find a solution that evaluates to 24 which uses each number exactly once, and any basic operations `+-*/`.
 <br>
