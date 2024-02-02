@@ -1,7 +1,7 @@
 # 24 points Discord bot
 Built using [discord.py](https://github.com/Rapptz/discord.py) library.
 <br>
-Invite the bot to your server [here](https://discord.com/api/oauth2/authorize?client_id=1111748309510520842&permissions=2147551232&scope=bot).
+Invite the bot to your server using this invite [link](https://discord.com/api/oauth2/authorize?client_id=1111748309510520842&permissions=2147551232&scope=bot).
 ## 24 points rules
 Given 4 numbers ranging from 1 to 13, try to find a solution that evaluates to 24 which uses each number exactly once, and any basic operations `+-*/`.
 <br>
